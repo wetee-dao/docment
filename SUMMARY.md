@@ -14,6 +14,12 @@
 * [Install NVIDIA Container Runtime Support（Optional）](minner-installation-guides/install-nvidia-container-runtime-support-optional.md)
 * [Staking ant mint](minner-installation-guides/staking-ant-mint.md)
 
+## DEVELOPMENT GUIDES
+
+* [Blockchain validation node](development-guides/blockchain-validation-node.md)
+* [Run TEE miner](development-guides/run-tee-miner.md)
+* [Run TEE DKG](development-guides/run-tee-dkg.md)
+
 ## PRODUCTS
 
 * [Confidential Service](products/confidential-service.md)
