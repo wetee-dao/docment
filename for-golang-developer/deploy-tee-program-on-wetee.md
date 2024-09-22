@@ -1,18 +1,50 @@
 # Deploy TEE program on WeTEE
 
-初始化 golang 项目
+## Prepare machines that support SGX
+
+CPU Support
+
+* Intel 8th generation (Cannon Lake) Core i3, i5, i7, and i9 processors
+* Intel 9th generation (Cascade Lake) Core i3, i5, i7, and i9 processors
+* Intel 10th generation (Comet Lake) Core i3, i5, i7, and i9 processors
+* 2nd Generation Xeon Scalable processors (Cascade Lake) and later generations generally provide - SGX capabilities.
+
+## Install Ubuntu 20.04/22.04 and the ego programming environment
+
+1\. Install base pkg
+
+```
+sudo apt install curl build-essential libssl-dev
+```
+
+2\. Install sgx repp key
+
+```
+sudo curl -s https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | sudo tee /etc/apt/keyrings/intel-sgx-keyring.asc > /dev/null
+sudo echo "deb [signed-by=/etc/apt/keyrings/intel-sgx-keyring.asc arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/intel-sgx.list
+```
+
+3\. Install sgx driver
+
+```
+sudo apt-get update && sudo1 apt-get install -y libsgx-dcap-ql libsgx-dcap-default-qpl  libsgx-enclave-common 
+```
+
+
+
+## Initialize a Golang project
 
 ```
 go mod init xxx/ego-demo
 ```
 
-添加 sgx sdk
+## Add SGX SDK to the project
 
 ```
 go get github.com/wetee-dao/libos-entry@v0.1.0
 ```
 
-编写demo代码 hello.go
+## Write demo code named hello
 
 ```go
 package main
@@ -24,7 +56,8 @@ import (
 )
 
 func main() {
-	err := ego.InitLocalEgo()
+	// ADD TEE sdk
+	err := ego.InitEgo()
 	if err != nil {
 		panic(err)
 	}
@@ -43,25 +76,61 @@ func resourceHandler(w http.ResponseWriter, req *http.Request) {
 
 ```
 
-编译 二进制程序
+## Compile into a binary program
 
-```
+```bash
 ego-go build hello.go
 ```
 
-签名 二进制程序
+## Sign the binary program
 
-```
+```bash
 ego sign hello
 ```
 
-使用 ego 运行程序
+## Run the program using ego
 
-```
+```bash
 ego run hello
 ```
 
+
+
+## Edit Dockerfile and build docker
+
+```docker
+FROM registry.cn-hangzhou.aliyuncs.com/wetee_dao/ego-ubuntu-deploy:22.04
+WORKDIR /
+
+# Add the hello 
+ADD hello  /hello
+# Add the hello end
+
+EXPOSE 8999 65535
+
+ENTRYPOINT ["/bin/sh", "-c" ,"ego run hello"]
 ```
-docker build -t xxxxxx/ego-hello:dev .
-docker push xxxxxx/ego-hello:dev
+
+```bash
+docker build xxxx/ego-hello:dev .
+docker push xxxx/ego-hello:dev
 ```
+
+
+
+## Deploy to WeTEE
+
+Open [https://dapp.wetee.app](https://dapp.wetee.app)\
+
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Add SGX Confidential Service
+
+[**TEE type select SGX**](#user-content-fn-1)[^1]
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Click Deploy&#x20;
+
+[^1]: 
