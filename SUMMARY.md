@@ -25,3 +25,10 @@
 * [Confidential Service](products/confidential-service.md)
 * [Confidential Task](products/confidential-task.md)
 * [GPU Compute service](products/gpu-compute-service.md)
+
+## For golang developer
+
+* [Introduction](for-golang-developer/introduction.md)
+* [Deploy TEE program on the cloud](for-golang-developer/deploy-tee-program-on-the-cloud.md)
+* [Deploy TEE program on WeTEE](for-golang-developer/deploy-tee-program-on-wetee.md)
+* [Deploy program docker image on WeTEE](for-golang-developer/deploy-program-docker-image-on-wetee.md)
