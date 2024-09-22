@@ -1,8 +1,6 @@
----
-description: Open https://dapp.wetee.app
----
-
 # Deploy program docker image on WeTEE
+
+Open [https://dapp.wetee.app](https://dapp.wetee.app)
 
 <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
