@@ -28,7 +28,7 @@
 
 ## For golang developer
 
-* [Golang TEEE introduction](for-golang-developer/golang-teee-introduction.md)
+* [Golang TEE introduction](for-golang-developer/golang-tee-introduction.md)
 * [Libos sdk](for-golang-developer/libos-sdk.md)
 * [Deploy TEE program on the cloud](for-golang-developer/deploy-tee-program-on-the-cloud.md)
 * [Deploy TEE program on WeTEE](for-golang-developer/deploy-tee-program-on-wetee.md)
