@@ -6,5 +6,15 @@
         "-sharing",
         "fontsettings",
         "theme-default"
-    ]
+    ],
+    "structure": {
+        "readme": "README.md",
+        "summary": "SUMMARY.md"
+    },
+    "variables": {
+        "languages": [
+            { "id": "en", "name": "English" },
+            { "id": "zh", "name": "中文" }
+        ]
+    }
 }
