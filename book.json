@@ -1,0 +1,10 @@
+{
+    "title": "WeTEE Documentation",
+    "author": "WeTEE DAO",
+    "description": "Decentralized Confidential Computing Cloud",
+    "plugins": [
+        "-sharing",
+        "fontsettings",
+        "theme-default"
+    ]
+}
