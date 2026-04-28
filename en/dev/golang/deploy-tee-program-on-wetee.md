@@ -1,4 +1,4 @@
-# Deploy TEE program on WeTEE
+# Deploy TEE program on PulsWeb2
 
 ## Prepare machines that support SGX
 
@@ -126,9 +126,9 @@ docker push xxxx/ego-hello:dev
 
 
 
-## Deploy to WeTEE
+## Deploy to PulsWeb2
 
-Open [https://dapp.wetee.app](https://dapp.wetee.app)\
+Open your PulsWeb2 dApp URL (depends on environment)\
 
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>

@@ -1,15 +1,26 @@
-# Proposals & Voting
+# Creating Proposals
 
-Proposals are the primary way to initiate changes within the WeTEE DAO.
+If you have a brilliant idea for PulsWeb2 or have found a bug that needs fixing, you can create a proposal and let the entire community vote on it.
 
-## Creating a Proposal
+### Steps to Create a Proposal
 
-1.  **Drafting:** Define the scope, budget, and implementation plan for your proposal.
-2.  **Submission:** Use the WeTEE dApp to submit your proposal. This requires a small deposit in WETEE tokens.
-3.  **Discussion:** Engage with the community in the forums or social channels to explain the benefits of your proposal.
+#### Step 1: Pre-discussion
+Before officially submitting, we highly recommend posting your idea on [Discord](https://discord.gg/wetee) or our governance forum. Getting initial feedback greatly increases your chance of passing.
 
-## Voting Process
+#### Step 2: Submission
+1.  Navigate to **"Governance" -> "Proposals"**.
+2.  Click **"Create Proposal"**.
+3.  **Provide Details**:
+    *   **Title & Description**: Clearly explain your goal, the problem you're solving, and any requested funding.
+    *   **Execution Logic**: If it's a technical parameter change, fill in the corresponding on-chain command (extrinsic).
+4.  **Submission Requirement**: Some environments require a submission threshold (e.g., permissions, rate limits, or other checks). Follow the UI prompts in your current dApp build.
 
-*   **Voting Period:** Each proposal has a predefined voting window (e.g., 7 days).
-*   **Conviction Voting:** The longer you lock your tokens, the more voting power you have.
-*   **Outcome:** If the proposal reaches the necessary quorum and approval threshold, it is automatically enacted or passed to the technical committee for implementation.
+#### Step 3: Voting Period
+The community will vote over a specified period. You can share your proposal link to rally support.
+
+#### Step 4: Execution
+If the proposal passes, the "Enactor" automatically executes the code changes, or the treasury releases the funds according to the proposal's terms.
+
+---
+
+**Tip for Success**: A good proposal includes clear **cost estimates** and an **impact analysis**.

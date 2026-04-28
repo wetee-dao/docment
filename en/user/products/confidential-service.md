@@ -1,9 +1,31 @@
-# Confidential Service
+# Deploy Confidential Service (Apps)
 
-Within a DAPP, we can deploy confidential containers, enabling users to deploy and run a pre-packaged confidential container without requiring expertise in confidential computing within just 10 seconds.
+**Confidential Service** is designed for long-running applications such as websites, databases, or API backends.
 
-<figure><img src="../../.gitbook/assets/create cs.png" alt=""><figcaption></figcaption></figure>
+### Why is it special?
+When you deploy a Confidential Service, it runs inside a completely encrypted "hardware black box." Even the node provider who owns the physical server cannot see your code logic or the sensitive data stored in memory.
 
-We provide a centralized cloud-like experience where users can view the resource utilization of programs, check logs, and validate if programs are being executed confidentially.
+### How to Deploy? (In 3 Simple Steps)
 
-<figure><img src="../../.gitbook/assets/cs_detail.png" alt=""><figcaption></figcaption></figure>
+#### Step 1: Prepare your Image
+PulsWeb2 supports standard Docker images. You only need to push your image to a public registry (like Docker Hub) or a private one.
+
+#### Step 2: Configure your Settings
+1.  Log in to the PulsWeb2 dApp.
+2.  Navigate to the **"Confidential Service"** page and click **"Create."**
+3.  **Fill in the details**:
+    *   **Image**: Enter your Docker image URL (e.g., `nginx:latest`).
+    *   **Resources**: Select the required CPU and RAM.
+    *   **Port**: Specify the port your program uses to communicate with the outside world.
+
+#### Step 3: One-Click Launch
+Click the **"Deploy"** button and sign the transaction. The system will automatically match your request with a suitable node. Your app will typically be live within 10-30 seconds.
+
+### Monitoring & Management
+*   **Real-time Logs**: View your program's output directly in the console.
+*   **Verification**: Click the "Verify" button to see the actual hardware attestation proof, ensuring your privacy is fully protected by genuine hardware.
+*   **Scalability**: Increase or decrease resources at any time, or stop the service to cease billing immediately.
+
+---
+
+**Best for**: Private password managers, encrypted databases, or any backend service handling user-sensitive data.

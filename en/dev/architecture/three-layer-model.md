@@ -1,12 +1,12 @@
 # Three-Layer Architecture Model
 
-WeTEE's architecture is designed for scalability, security, and decentralization. It splits the responsibilities across three distinct layers.
+PulsWeb2's architecture is designed for scalability, security, and decentralization. It splits the responsibilities across three distinct layers.
 
 ## Layer 1: Main Chain (Polkadot)
 
 The foundation of the network, primarily based on Polkadot (with a roadmap to integrate more blockchain networks). It provides a secure environment for:
 *   **User Logic:** Handling all core business logic and user-facing transactions.
-*   **Asset Management:** Handling WETEE tokens and other assets.
+*   **Asset Management:** Assets and fee settlement (PulsWeb2 does not issue a token; refer to the current dApp/chain implementation for payment & settlement details).
 *   **Scheduling:** Mapping user compute requests to available worker nodes.
 *   **Auditing:** Storing proofs of execution and attestation reports for verification.
 
@@ -22,4 +22,4 @@ A high-performance side-chain focused on privacy and secret management:
 The execution environment where the actual computation happens:
 *   **Intel SGX/GPU TEE:** Provides hardware-level isolation for workloads.
 *   **Kubernetes (K3s):** Orchestrates confidential containers.
-*   **WeTEE Operator:** Manages the lifecycle of TEE applications and handles attestation.
+*   **PulsWeb2 Operator:** Manages the lifecycle of TEE applications and handles attestation.

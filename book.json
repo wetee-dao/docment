@@ -1,7 +1,7 @@
 {
-    "title": "WeTEE Documentation",
-    "author": "WeTEE DAO",
-    "description": "Decentralized Confidential Computing Cloud",
+    "title": "PulsWeb2 Documentation",
+    "author": "PulsWeb2",
+    "description": "Confidential computing platform (no token issuance)",
     "plugins": [
         "-sharing",
         "fontsettings",

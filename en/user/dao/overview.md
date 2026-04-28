@@ -1,16 +1,23 @@
-# DAO Overview
+# Participating in DAO
 
-WeTEE is moving towards a fully decentralized governance model through its integrated DAO (Decentralized Autonomous Organization). The DAO allows community members and stakeholders to participate in the decision-making process of the platform.
+PulsWeb2 is not controlled by a single company; it can be governed by a community governance mechanism. If you have access to governance features in your current environment, you can participate in decision-making.
 
-## Governance Structure
+### Why Participate?
+*   **Shape the Future**: Vote on which new GPU models to support next or whether to adjust computing prices.
+*   **Treasury Oversight**: You decide how the DAO treasury funds are spent—whether on development, marketing, or community grants.
+*   **Stay Aligned**: Governance keeps platform direction aligned with real users and builders.
 
-*   **Council:** A group of elected members responsible for overseeing the platform and proposing major changes.
-*   **Token Holders:** Holders of the native WETEE token can vote on proposals and participate in governance.
-*   **Democracy:** A direct voting mechanism for critical platform updates and parameter changes.
+### Core Roles
+1.  **Participants**: Users who are eligible in the current environment can vote and discuss proposals.
+2.  **Council**: Elected representatives who handle urgent matters or fast-track proposals.
+3.  **Technical Committee**: Responsible for reviewing code upgrades to ensure platform security.
 
-## Participation
+### How to Join?
+1.  **Access Governance**: Make sure your account has governance access in the current environment.
+2.  **Go to Governance**: Click on the **"Governance"** tab in the dApp.
+3.  **View Active Proposals**: Read through what the community is currently debating.
+4.  **Cast Your Vote**: Choose "Aye" (Yes), "Nay" (No), or "Abstain."
 
-Anyone holding WETEE tokens can participate in the DAO by:
-1.  **Submitting Proposals:** Propose new features, budget allocations, or policy changes.
-2.  **Voting:** Cast votes on active proposals to shape the future of the platform.
-3.  **Staking:** Stake tokens to gain voting power and earn rewards.
+---
+
+**Summary**: At PulsWeb2, users are not just consumers—they are the builders and decision-makers of the platform.

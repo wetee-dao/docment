@@ -1,4 +1,4 @@
-/* Ultimate WeTEE Dark Theme - High Fidelity GitBook Clone */
+/* PulsWeb2 Dark Theme - High Fidelity GitBook Clone */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -40,8 +40,8 @@ html, body,
 
 /* Section Headers in Sidebar (Uppercase Green) */
 .book-summary ul.summary li.header {
-    color: rgb(66, 204, 106) !important; /* WeTEE Green */
-    font-size: 11px !important;
+    color: rgb(66, 204, 106) !important; /* PulsWeb2 Green */
+    font-size: 15px !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
@@ -59,12 +59,10 @@ html, body,
 /* 3. Search Box Styling */
 #book-search-input {
     background: transparent !important;
-    padding: 12px 24px !important;
     border-bottom: 1px solid rgb(39, 39, 42) !important;
 }
 
 #book-search-input input {
-    background: rgb(24, 24, 27) !important;
     border: 1px solid rgb(39, 39, 42) !important;
     border-radius: 0px !important;
     padding: 8px 12px 8px 12px !important;
@@ -161,10 +159,8 @@ html, body,
 /* 6. Header/Toolbar Styling */
 .book-header {
     backdrop-filter: blur(12px) !important;
-    border-bottom: 1px solid rgb(39, 39, 42) !important;
-    height: 64px !important;
+    height: 50px !important;
     position: relative !important;
-    padding: 7px 0px !important;
 }
 
 .book-header h1 a {
@@ -199,7 +195,6 @@ pre {
     background: rgba(66, 204, 106, 0.1) !important;
     border: 1px solid rgba(66, 204, 106, 0.3) !important;
     padding: 4px 12px !important;
-    border-radius: 6px !important;
     font-size: 13px !important;
     font-weight: 600 !important;
     text-decoration: none !important;
@@ -232,6 +227,11 @@ pre {
 /* Divider colors */
 .divider {
     background: rgb(39, 39, 42) !important;
+}
+
+/* 10. 去掉所有圆角（强制全局直角风格） */
+.book * {
+    border-radius: 0 !important;
 }
 
 /* 9. 隐藏 "本書使用 HonKit 釋出" (Published with HonKit) */

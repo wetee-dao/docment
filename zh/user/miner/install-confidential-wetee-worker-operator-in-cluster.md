@@ -1,6 +1,6 @@
-# Deploying WeTEE Worker
+# Deploying PulsWeb2 Worker
 
-The WeTEE Worker is a Kubernetes controller that manages confidential workloads on SGX/GPU enabled nodes.
+The PulsWeb2 Worker is a Kubernetes controller that manages confidential workloads on SGX/GPU enabled nodes.
 
 ## Prerequisites
 

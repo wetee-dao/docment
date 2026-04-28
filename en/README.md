@@ -1,12 +1,12 @@
 ---
-description: WeTEE - A Decentralized Confidential Computing Cloud
+description: PulsWeb2 - Confidential computing platform (no token issuance)
 ---
 
 # OVERVIEW
 
 <figure><img src=".gitbook/assets/chain (1).png" alt=""><figcaption></figcaption></figure>
 
-WeTEE is a next-generation decentralized confidential computing cloud platform built on a robust three-layer architecture, providing a secure, private, and high-performance environment for modern applications.
+PulsWeb2 is a confidential computing platform built on a robust three-layer architecture, providing a secure, private, and high-performance environment for modern applications.
 
 ## Three-Layer Architecture
 

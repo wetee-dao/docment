@@ -1,9 +1,22 @@
-# Confidential Task
+# 运行机密任务 (Confidential Task)
 
-Tasks can also be created, and they can be executed either once or multiple times.
+**机密任务**（Task）适用于“跑完即焚”的计算场景，比如数据分析、模型训练或密钥生成。
 
-<figure><img src="../../.gitbook/assets/create_task.png" alt=""><figcaption></figcaption></figure>
+### 什么是机密任务？
+与机密服务不同，机密任务在完成计算后会自动关闭并释放资源。它最适合处理那些对隐私要求极高、且不需要持续运行的任务。
 
-A task can be executed once or multiple times, and the result of each execution will be hashed and stored in a decentralized network.
+### 使用流程
 
-<figure><img src="../../.gitbook/assets/task_detail.png" alt=""><figcaption></figcaption></figure>
+1.  **提交任务**：在控制台进入 **“Confidential Task”**。
+2.  **设置触发条件**：你可以设置任务是“立即运行”还是“定时运行”。
+3.  **计算并加密结果**：任务运行时，所有中间数据都在 TEE 安全屋中。计算完成后，你可以设置将结果加密发送到你的指定邮箱或存储地址。
+4.  **自动结算**：任务结束的瞬间，计费立即停止。
+
+### 为什么选择机密任务？
+*   **极致隐私**：计算过程不留痕迹，内存数据随任务结束立即擦除。
+*   **更低成本**：无需为闲置时间付费。
+*   **高并发支持**：你可以同时发起成千上万个机密任务，利用全网的分布式算力。
+
+---
+
+**场景建议**：医学图像分析、多方安全计算（MPC）、大规模数据脱敏处理。

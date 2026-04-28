@@ -1,13 +1,21 @@
-# Confidential Storage
+# 机密存储
 
-Confidential Storage provides encrypted-at-rest storage solutions for confidential services and tasks. It ensures that sensitive data stored on disk is protected even if the physical storage medium is compromised.
+在机密计算中，数据在计算时是安全的，但如果存放数据的硬盘被偷了怎么办？**机密存储**解决了这个问题。
 
-## Features
+### 它是如何工作的？
+PulsWeb2 的机密存储并不是简单的“文件上传”，而是在写入硬盘之前，就在“安全屋”（TEE）内部完成了加密。
 
-*   **At-Rest Encryption:** Data is automatically encrypted before being written to disk and decrypted when read by the authorized TEE application.
-*   **Persistent Volumes (PVC):** Integrated with Kubernetes Persistent Volume Claims, allowing confidential services to maintain state across restarts.
-*   **Hardware-Bound Keys:** Encryption keys are managed within the TEE and can be bound to the hardware's root of trust.
+*   **唯一密钥**：加密密钥仅存在于 TEE 内部，任何人都无法导出。
+*   **绑定任务**：你可以设置存储空间只能被特定的机密容器访问。
 
-## Usage
+### 功能亮点
+1.  **持久化保存**：即使你的机密服务重启，数据依然保持加密且可读取。
+2.  **分布式备份**：数据碎片化存储在全网节点，具备极高的可靠性（由 Side-chain 协议保障）。
+3.  **零知识访问**：存储节点的提供者只能看到乱码，无法获知文件名、大小或任何内容。
 
-In WeTEE, you can request confidential storage by specifying storage requirements in your app deployment configuration. The system will automatically provision an encrypted volume and mount it to your TEE container.
+### 使用方法
+在部署应用时，挂载一个卷（Volume）并勾选 **“Confidential Encryption”** 即可。
+
+---
+
+**一句话总结**：让你的数据在静止、传输、计算的全生命周期中都处于机密状态。

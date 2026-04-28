@@ -1,16 +1,23 @@
-# DAO Overview
+# 参与 DAO 治理
 
-WeTEE is moving towards a fully decentralized governance model through its integrated DAO (Decentralized Autonomous Organization). The DAO allows community members and stakeholders to participate in the decision-making process of the platform.
+PulsWeb2 不是由某个单一公司控制的，而是由社区治理机制共同管理的。如果你当前使用的环境开放了治理功能，你可以参与平台决策。
 
-## Governance Structure
+### 为什么要参与？
+*   **决定未来**：你可以投票决定下个月该支持哪种新显卡，或者是否降低算力价格。
+*   **监督资金**：DAO 国库里的钱怎么花（比如用于开发还是营销），由你说了算。
+*   **共同建设**：治理让平台方向更贴近真实用户与开发者需求。
 
-*   **Council:** A group of elected members responsible for overseeing the platform and proposing major changes.
-*   **Token Holders:** Holders of the native WETEE token can vote on proposals and participate in governance.
-*   **Democracy:** A direct voting mechanism for critical platform updates and parameter changes.
+### 核心角色
+1.  **参与者**：在当前环境具备治理权限的用户可参与讨论与投票。
+2.  **委员会 (Council)**：由社区选出的代表，负责处理一些紧急事务或快速提案。
+3.  **技术委员会**：负责审查代码，确保技术升级的安全性。
 
-## Participation
+### 如何参与？
+1.  **开通治理权限**：确认你的账号在当前环境已开通治理相关能力。
+2.  **进入治理页面**：在 dApp 中点击 **“Governance”**。
+3.  **查看活跃提案**：看看大家正在讨论什么，点击进去阅读详情。
+4.  **投出你的一票**：你可以选择“赞成”、“反对”或“弃权”。
 
-Anyone holding WETEE tokens can participate in the DAO by:
-1.  **Submitting Proposals:** Propose new features, budget allocations, or policy changes.
-2.  **Voting:** Cast votes on active proposals to shape the future of the platform.
-3.  **Staking:** Stake tokens to gain voting power and earn rewards.
+---
+
+**一句话总结**：在 PulsWeb2，用户不再只是消费者，而是平台的建设者和决策者。

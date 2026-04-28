@@ -1,6 +1,6 @@
 # DKG & Side-chain
 
-WeTEE utilizes a Layer 2 side-chain to handle sensitive operations and decentralized secret management, ensuring that no single entity has full control over the system's root secrets.
+PulsWeb2 utilizes a Layer 2 side-chain to handle sensitive operations and decentralized secret management, ensuring that no single entity has full control over the system's root secrets.
 
 ## Decentralized Key Generation (DKG)
 

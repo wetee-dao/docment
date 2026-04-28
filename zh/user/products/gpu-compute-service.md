@@ -1,7 +1,22 @@
-# GPU Compute service
+# 使用 GPU 算力
 
-We have also adapted AI applications so that AI program containers can be deployed in decentralized environments with minimal modifications and still deliver performance comparable to running on the cloud.
+PulsWeb2 不仅提供 CPU 计算，还支持强大的 **机密 GPU 算力**。这对于现代的 AI 训练和推理至关重要。
 
-Due to our utilization of containerized packaging, developers can seamlessly transition from their current cloud setups.
+### 核心功能
+*   **硬件隐私**：支持基于 NVIDIA TEE 技术的 GPU 隔离，确保模型参数和输入数据在显存中也是加密的。
+*   **极致性能**：直接访问物理 GPU，几乎没有虚拟化损耗。
+*   **按需获取**：从 H100 到消费级 4090，你可以根据预算选择合适的节点。
 
-<figure><img src="../../.gitbook/assets/gpu_deploy.png" alt=""><figcaption></figcaption></figure>
+### 如何开启？
+1.  在创建 **Confidential Service** 或 **Task** 时。
+2.  在 **Resources** 选项中，勾选 **“Enable GPU”**。
+3.  选择对应的显卡型号和显存大小。
+4.  部署应用。
+
+### 注意事项
+*   **驱动支持**：请确保你的 Docker 镜像中已经安装了对应的 CUDA 运行环境。
+*   **成本**：GPU 算力的 WETEE 消耗通常高于纯 CPU 任务。
+
+---
+
+**场景建议**：大语言模型（LLM）私有化部署、隐私视频渲染、生物信息学计算。

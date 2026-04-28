@@ -1,4 +1,4 @@
-# Deploy program docker image on WeTEE
+# Deploy program docker image on PulsWeb2
 
 Open [https://dapp.wetee.app](https://dapp.wetee.app)
 

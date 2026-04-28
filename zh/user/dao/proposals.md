@@ -1,15 +1,26 @@
-# Proposals & Voting
+# 如何发起提案
 
-Proposals are the primary way to initiate changes within the WeTEE DAO.
+如果你对 PulsWeb2 有一个绝妙的改进点子，或者发现了一个需要修复的问题，你可以发起提案，让全社区为你投票。
 
-## Creating a Proposal
+### 发起提案的步骤
 
-1.  **Drafting:** Define the scope, budget, and implementation plan for your proposal.
-2.  **Submission:** Use the WeTEE dApp to submit your proposal. This requires a small deposit in WETEE tokens.
-3.  **Discussion:** Engage with the community in the forums or social channels to explain the benefits of your proposal.
+#### 第一步：讨论 (Pre-discussion)
+在正式发起提案之前，我们强烈建议你在 [Discord](https://discord.gg/wetee) 或治理论坛上发布你的想法。听听大家的反馈，这会大大增加你提案通过的概率。
 
-## Voting Process
+#### 第二步：提交提案 (Submission)
+1.  进入 **“Governance” -> “Proposals”**。
+2.  点击 **“Create Proposal”**。
+3.  **填写详情**：
+    *   **标题与描述**：清晰地说明你的想法、目的以及需要的资金支持（如果有）。
+    *   **执行逻辑**：如果是技术参数修改，需要填写对应的链上命令。
+4.  **缴纳押金**：发起提案需要质押少量的 WETEE。如果提案通过或获得了足够的关注，押金会返还给你。
 
-*   **Voting Period:** Each proposal has a predefined voting window (e.g., 7 days).
-*   **Conviction Voting:** The longer you lock your tokens, the more voting power you have.
-*   **Outcome:** If the proposal reaches the necessary quorum and approval threshold, it is automatically enacted or passed to the technical committee for implementation.
+#### 第三步：投票期 (Voting)
+全网用户将会在指定时间内进行投票。你可以分享你的提案链接，争取更多的支持。
+
+#### 第四步：执行
+如果投票通过，系统的“执行器”会自动运行相关的代码，或者由委员会按照提案内容进行资金拨付。
+
+---
+
+**成功的秘诀**：一个好的提案应该包含清晰的 **成本估算** 和 **预期收益分析**。

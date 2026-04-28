@@ -1,12 +1,12 @@
 ---
-description: WeTEE - 去中心化机密计算云平台
+description: PulsWeb2 - 机密计算平台（不发币）
 ---
 
 # 项目概述
 
 <figure><img src=".gitbook/assets/chain (1).png" alt=""><figcaption></figcaption></figure>
 
-WeTEE 是基于强大的三层架构构建的下一代去中心化机密计算云平台，为现代应用程序提供安全、隐私和高性能的运行环境。
+PulsWeb2 是基于三层架构构建的机密计算平台，为现代应用程序提供安全、隐私和高性能的运行环境。
 
 ## 三层架构
 
