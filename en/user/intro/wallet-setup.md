@@ -4,12 +4,12 @@ PulsWeb2 is built on top of the Polkadot ecosystem. To use the dApp, you may nee
 
 ### Step 1: Choose a Wallet
 We recommend the following mainstream wallets within the Polkadot ecosystem:
-1.  **Polkadot{.js} Plus** (Browser Extension - Recommended): Most feature-rich.
+1.  **Polkadot{.js}** (Browser Extension - Recommended): Most feature-rich.
 2.  **Talisman** (Browser Extension): Beautiful UI, very user-friendly.
 3.  **SubWallet** (Browser/Mobile): Great all-around experience.
 
 ### Step 2: Install and Create
-Using **Polkadot{.js} Plus** as an example:
+Using **Polkadot{.js}** as an example:
 1.  Go to the [Chrome Web Store](https://chrome.google.com/webstore) and search for the extension.
 2.  Click "Create New Account."
 3.  **CRITICAL**: Write down and safely store your **12-word recovery phrase (Seed Phrase)**. Do not take a screenshot or store it in the cloud. This is the only way to recover your assets.

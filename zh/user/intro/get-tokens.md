@@ -6,7 +6,7 @@
 PulsWeb2 目前基于波卡 (Polkadot) 生态技术构建。虽然处于测试阶段，但你仍然需要一个账户地址来标识你的身份。
 
 我们推荐使用：
-*   **Polkadot{.js} Plus** (浏览器插件)
+*   **Polkadot{.js}** (浏览器插件)
 *   **Talisman** 或 **SubWallet**
 
 ### 2. 获取使用权限 / 配额
