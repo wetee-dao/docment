@@ -1,25 +1,28 @@
-# Three-Layer Architecture Model
+# 三层架构模型
 
-PulsWeb2 的架构旨在兼顾可扩展性、安全性与去中心化，将职责划分为三个层级。
+PulsWeb2 的架构旨在兼顾**可扩展性、安全性与去中心化**，将系统职责划分为三个层级：主链层、可信子网/侧链层、计算执行层。三层协作的目标是：主链负责公开可验证的“规则与结算”，侧链/子网负责“隐私与密钥协作”，TEE 计算层负责“执行与证明”。
 
-## Layer 1: Main Chain (Polkadot)
+## 第一层：主链（Main Chain，例如 Polkadot）
 
-The foundation of the network, primarily based on Polkadot (with a roadmap to integrate more blockchain networks). It provides a secure environment for:
-*   **User Logic:** Handling all core business logic and user-facing transactions.
-*   **Asset Management:** 资产与费用结算（PulsWeb2 不发币；具体“使用什么资产/如何计费”以当前 dApp 与链端实现为准）。
-*   **Scheduling:** Mapping user compute requests to available worker nodes.
-*   **Auditing:** Storing proofs of execution and attestation reports for verification.
+主链是整个网络的基础层（当前以 Polkadot 为主，并可按路线图接入更多链），提供公开可验证的安全环境，主要承担：
 
-## Layer 2: Side-chain (DKG & CometBFT)
+- **用户逻辑（User Logic）**：承载核心业务逻辑与面向用户的链上交互。
+- **资产与费用结算（Asset & Fee Settlement）**：负责支付与结算等经济行为的链上记录与执行（PulsWeb2 不发币；具体使用何种资产、计费与结算规则以当前 dApp 与链端实现为准）。
+- **调度（Scheduling）**：将用户的计算请求映射/分配到可用的 Worker 节点与资源池。
+- **审计（Auditing）**：存储执行证明与远程证明（Attestation）报告，便于第三方校验。
 
-A high-performance side-chain focused on privacy and secret management:
-*   **Decentralized Key Generation (DKG):** Distributes the generation of keys across multiple nodes so that no single node ever knows the full secret.
-*   **Proxy Re-Encryption (PRE):** Allows data to be securely re-encrypted for specific TEE workloads without exposing the raw data.
-*   **State Sync:** Coordinates between the Main Chain and individual Workers.
+## 第二层：侧链 / 可信子网（Side-chain / Trusted Subnet，例如 DKG & CometBFT）
 
-## Layer 3: Computing Layer (TEE Workers)
+这一层面向隐私与机密状态管理，强调高性能与抗作恶协作，典型能力包括：
 
-The execution environment where the actual computation happens:
-*   **Intel SGX/GPU TEE:** Provides hardware-level isolation for workloads.
-*   **Kubernetes (K3s):** Orchestrates confidential containers.
-*   **PulsWeb2 Operator:** 管理 TEE 应用生命周期并处理证明（Attestation）。
+- **分布式密钥生成（DKG, Decentralized Key Generation）**：将密钥生成与控制分散到多个节点，避免任何单一节点掌握完整秘密。
+- **代理重加密（PRE, Proxy Re-Encryption）**：在不暴露原始数据的前提下，将密文安全地“转授权/重加密”给指定的 TEE 工作负载使用。
+- **状态同步（State Sync）**：协调主链与各个 Worker 的状态与任务生命周期，确保跨层一致性。
+
+## 第三层：计算执行层（Computing Layer，TEE Workers）
+
+这一层是实际计算发生的地方，用于承载机密任务/机密服务的运行与可验证执行：
+
+- **TEE 执行环境（例如 Intel SGX / GPU TEE）**：为工作负载提供硬件级隔离与防篡改能力。
+- **Kubernetes（例如 K3s）编排**：负责机密容器的部署、调度、伸缩与运行时管理。
+- **PulsWeb2 Operator**：管理 TEE 应用生命周期，并生成/上报远程证明（Attestation）等可验证材料。

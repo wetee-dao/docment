@@ -1,10 +1,10 @@
-# Deploy Trusted Subnet `tee-dsecret` (Consensus Security Mining)
+# Deploy Trusted Subnet `tee-dsecret` (Consensus Security Node)
 
 `tee-dsecret` is a **Trusted Subnet** component in PulsWeb2. It hosts consensus-protected security coordination flows (such as DKG, membership management, and key rotation).
 
 It is different from the Worker role:
-- `tee-worker`: runs confidential workloads (compute mining)
-- `tee-dsecret`: provides security consensus and trusted-subnet capability (consensus security mining)
+- `tee-worker`: runs confidential workloads (compute node)
+- `tee-dsecret`: provides security consensus and trusted-subnet capability (consensus security node)
 
 ## What you need
 

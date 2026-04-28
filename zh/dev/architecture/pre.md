@@ -1,16 +1,16 @@
-# Proxy Re-Encryption (PRE)
+# 代理重加密（PRE, Proxy Re-Encryption）
 
-Proxy Re-Encryption (PRE) is a core privacy feature of PulsWeb2 that allows secure data sharing and access control without ever exposing the user's data to the platform or the workers in its raw form.
+代理重加密（PRE）是 PulsWeb2 的核心隐私能力之一：它允许在**不暴露原始数据**的前提下完成安全的数据共享与访问控制——平台方、侧链节点、以及 Worker 运维方都不需要看到明文。
 
-## How it Works
+## 工作原理
 
-1.  **Encryption by User:** The user encrypts their sensitive data (e.g., input data for a confidential task) using their own key.
-2.  **Re-Encryption Key:** The user generates a special "re-encryption key" targeted at a specific TEE workload's public key.
-3.  **The Proxy (Side-chain):** The PulsWeb2 side-chain (the proxy) uses the re-encryption key to transform the user's encrypted data into a version that can be decrypted *only* by the authorized TEE workload.
-4.  **Decryption in TEE:** The TEE workload decrypts the data inside its secure hardware enclave, processes it, and outputs the result.
+1. **用户加密（Encryption by User）**：用户使用自己的密钥对敏感数据加密（例如机密任务的输入数据）。
+2. **生成重加密密钥（Re-Encryption Key）**：用户为某个特定的 TEE 工作负载（以其公钥标识）生成专用的“重加密密钥”。
+3. **代理重加密（Proxy / Side-chain）**：PulsWeb2 的侧链/可信子网作为代理，使用重加密密钥将“用户密文”转换为一种新密文，使其**只能被被授权的 TEE 工作负载解密**。
+4. **TEE 内解密与执行（Decryption in TEE）**：TEE 工作负载在硬件安全区内解密数据、完成计算，并输出结果。
 
-## Benefits
+## 主要收益
 
-*   **Zero Exposure:** Neither the side-chain nodes nor the worker administrators can see the user's data during the re-encryption process.
-*   **Granular Access Control:** Users can revoke access by destroying the re-encryption key or changing policies on the side-chain.
-*   **Auditability:** Every re-encryption event is recorded on the side-chain for auditing.
+- **零暴露（Zero Exposure）**：重加密过程中，侧链节点与 Worker 管理员都无法看到用户数据明文。
+- **细粒度访问控制（Granular Access Control）**：用户可以通过销毁重加密密钥或修改侧链策略来撤销访问权限。
+- **可审计（Auditability）**：每次重加密事件都会在侧链/子网上记录，便于追踪与审计。

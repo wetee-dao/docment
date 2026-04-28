@@ -1,10 +1,10 @@
-# 部署可信子网 `tee-dsecret`（安全共识挖矿）
+# 部署可信子网 `tee-dsecret`（安全共识节点）
 
 `tee-dsecret` 是 PulsWeb2 的**可信子网（Trusted Subnet）**组件，用于承载需要共识保障的关键安全流程（例如 DKG、成员管理、密钥轮换等）。
 
 它的定位与 Worker 不同：
-- `tee-worker`：负责跑用户的机密计算（算力挖矿）
-- `tee-dsecret`：负责提供安全共识与子网能力（安全共识挖矿）
+- `tee-worker`：负责跑用户的机密计算（算力节点）
+- `tee-dsecret`：负责提供安全共识与子网能力（安全共识节点）
 
 ## 你需要准备什么
 
@@ -17,7 +17,7 @@
 
 ## 部署方式（建议）
 
-当前工作空间里 Worker 侧是以 Kubernetes/K3s 方式部署的（可见矿工安装文档）。`tee-dsecret` 也建议采用同样的方式统一运维：
+当前工作空间里 Worker 侧是以 Kubernetes/K3s 方式部署的（可参考 Worker 安装文档）。`tee-dsecret` 也建议采用同样的方式统一运维：
 
 1. 准备 Kubernetes/K3s 集群
 2. 为 `tee-dsecret` 预留存储卷（PVC）与网络端口

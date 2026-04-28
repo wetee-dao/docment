@@ -1,4 +1,4 @@
-# Run TEE miner
+# Run a TEE Worker Node
 
 ### Hardware and Software Requirements
 

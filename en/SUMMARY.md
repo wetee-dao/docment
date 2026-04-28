@@ -22,9 +22,9 @@
 * [Participating in DAO](user/dao/overview.md)
 * [Creating Proposals](user/dao/proposals.md)
 
-## ⛏️ Compute Mining
+## Compute Nodes (Confidential Compute)
 
-* [Compute Mining: Run `tee-worker` (Confidential Compute)](user/miner/miner-types.md)
+* [Run `tee-worker` (Confidential Compute Node)](user/miner/miner-types.md)
 * [Supported TEE Devices](user/miner/supported-devices.md)
 * [Prepare K3s Environment](user/miner/install-k3s-cluster-on-linux.md)
 * [Install PulsWeb2 Worker](user/miner/install-confidential-wetee-worker-operator-in-cluster.md)
@@ -32,7 +32,7 @@
 * [Enable GPU Support (Optional)](user/miner/install-nvidia-container-runtime-support-optional.md)
 * [Worker Setup Notes](user/miner/staking-ant-mint.md)
 
-## 🛡️ Consensus Mining
+## Consensus Security Nodes (Trusted Subnet)
 
 * [Run tee-dsecret trusted subnet](user/miner/miner-types.md)
 * [Deploy tee-dsecret](user/miner/deploy-tee-dsecret.md)

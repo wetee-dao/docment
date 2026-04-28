@@ -1,8 +1,8 @@
-# Two Miner Roles: Compute vs Consensus Security
+# Two Node Roles: Compute vs Consensus Security
 
-In PulsWeb2, “miners” can mean **two different node roles**:
+In PulsWeb2, there are **two different node roles** you can run:
 
-## 1) Compute Mining
+## 1) Compute Node
 
 This role provides **confidential compute** and actually runs users’ Confidential Services / Confidential Tasks.
 
@@ -13,7 +13,7 @@ This role provides **confidential compute** and actually runs users’ Confident
   - Provide verifiable attestation (hardware proof)
   - Keep the node stable and online
 
-## 2) Consensus Security Mining
+## 2) Consensus Security Node
 
 This role provides **security and consensus** by operating a Trusted Subnet that runs sensitive coordination protocols.
 

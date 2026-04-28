@@ -1,6 +1,6 @@
-# Libos sdk
+# LibOS SDK（EGO）
 
-## import package
+## 引入依赖
 
 {% code title="" %}
 ```
@@ -8,12 +8,12 @@ github.com/wetee-dao/libos-entry/entry/ego
 ```
 {% endcode %}
 
-* ego.Fs.Encrypt  Use TEE to encrypt data
-* ego.Fs.Decrypt Use TEE to decrypt data
-* ego.Fs.WriteFile Write file with TEE
-* ego.Fs.ReadFile Read file with TEE
+* `ego.Fs.Encrypt`：在 TEE 内加密数据
+* `ego.Fs.Decrypt`：在 TEE 内解密数据
+* `ego.Fs.WriteFile`：在 TEE 内写文件
+* `ego.Fs.ReadFile`：在 TEE 内读文件
 
-## Update to the latest dependencies
+## 更新到最新依赖版本
 
 ```bash
 go get github.com/wetee-dao/libos-entry@v0.1.1
@@ -21,7 +21,7 @@ go get github.com/wetee-dao/libos-entry@v0.1.1
 
 
 
-Example：
+示例：
 
 ```go
 package main

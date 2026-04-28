@@ -1,10 +1,10 @@
-# Blockchain validation node
+# 区块链验证节点（Validation Node）
 
-## Getting Started
+## 快速开始
 
-Follow the steps below to get started with the example node.
+按以下步骤即可启动示例节点。
 
-#### Rust Setup
+#### Rust 环境准备
 
 * [Linux development environment](https://docs.substrate.io/install/linux/).
 * [MacOS development environment](https://docs.substrate.io/install/macos/).
@@ -12,7 +12,7 @@ Follow the steps below to get started with the example node.
 
 ## Run
 
-Use Rust's native `cargo` command to build and launch the node:
+使用 Rust 原生的 `cargo` 命令编译并启动节点：
 
 ```sh
 cargo run --release -p wetee-node -- --dev
@@ -20,7 +20,7 @@ cargo run --release -p wetee-node -- --dev
 
 ## Build
 
-The `cargo run` command will perform an initial build. Use the following command to build the node without launching it:
+`cargo run` 会在首次运行时自动构建。如果你只想构建而不启动节点，使用：
 
 ```sh
 cargo build --release
@@ -28,7 +28,7 @@ cargo build --release
 
 #### Embedded Docs
 
-Once the project has been built, the following command can be used to explore all parameters and subcommands:
+项目构建完成后，可以用下面命令查看全部参数与子命令：
 
 ```sh
 ./target/release/wetee-node -h
@@ -36,36 +36,36 @@ Once the project has been built, the following command can be used to explore al
 
 ## Run local dev chain
 
-The provided `cargo run` command will launch a temporary node and its state will be discarded after you terminate the process.
+使用 `cargo run` 启动的是临时开发节点；进程退出后其状态会被丢弃。
 
-After the project has been built, there are other ways to launch the node.
+构建完成后，你也可以用其它方式启动节点。
 
 #### Single-Node Development Chain
 
-This command will start the single-node development chain with non-persistent state:
+启动单节点开发链（状态默认不持久化）：
 
 ```bash
 ./target/release/wetee-node --dev
 ```
 
-Purge the development chain's state:
+清理开发链状态：
 
 ```bash
 ./target/release/wetee-node purge-chain --dev
 ```
 
-Start the development chain with detailed logging:
+以更详细的日志启动开发链：
 
 ```bash
 RUST_BACKTRACE=1 ./target/release/wetee-node -ldebug --dev
 ```
 
-> Development chain means that the state of our chain will be in a tmp folder while the nodes are running. the following accounts will be pre-funded:
+> “开发链”表示链状态会被放到临时目录中。默认会预置以下测试账户余额：
 >
 > * Alice
 > * Bob
 
-In case of being interested in maintaining the chain' state between runs a base path must be added so the db can be stored in the provided folder instead of a temporary one. We could use this folder to store different chain databases, as a different folder will be created for each chain that is ran. The following commands shows how to use a newly created folder as our db base path.
+如果你希望多次运行之间保留链状态，需要指定 `--base-path`，把数据库存到指定目录而不是临时目录。该目录下会为不同的链创建不同子目录。示例：
 
 ```bash
 // Create a folder to use as the db base path

@@ -2,7 +2,13 @@ import fs from 'fs';
 import path from 'path';
 
 const bookDir = path.resolve('_book');
-const websiteDocsDir = path.resolve('../website/public/docs');
+const faviconSrc = path.resolve('favicon.ico');
+const faviconDest = path.join(bookDir, 'favicon.ico');
+
+// Ensure favicon is available in generated book root
+if (fs.existsSync(bookDir) && fs.existsSync(faviconSrc)) {
+    fs.copyFileSync(faviconSrc, faviconDest);
+}
 
 // 1. 创建自动跳转的 index.html
 const redirectHtml = `
@@ -54,6 +60,13 @@ function injectCustomContent(dir) {
             content = content.replace(/<link rel="stylesheet" href="[^"]*styles\/website\.css[^"]*">/gi, '');
             // 在 </head> 前注入
             content = content.replace(/<\/head>/i, `${cssLink}\n</head>`);
+
+            // --- 注入 favicon ---
+            const faviconPath = (relativeToBookRoot ? relativeToBookRoot + '/' : '') + 'favicon.ico';
+            const faviconLink = `\n    <link rel="icon" href="${faviconPath}?v=${version}">`;
+            // 移除旧的 favicon (如果存在)
+            content = content.replace(/<link[^>]+rel=["']icon["'][^>]*>/gi, '');
+            content = content.replace(/<\/head>/i, `${faviconLink}\n</head>`);
             
             // --- 注入语言切换器 (右上角版本) ---
             const relativePathFromLangRoot = fullPath.split(path.join(bookDir, currentLang) + path.sep)[1] || 'index.html';
@@ -93,26 +106,3 @@ function injectCustomContent(dir) {
 console.log('Injecting custom content...');
 if (fs.existsSync(path.join(bookDir, 'en'))) injectCustomContent(path.join(bookDir, 'en'));
 if (fs.existsSync(path.join(bookDir, 'zh'))) injectCustomContent(path.join(bookDir, 'zh'));
-
-// 3. 同步
-function copyRecursiveSync(src, dest) {
-    const exists = fs.existsSync(src);
-    const stats = exists && fs.statSync(src);
-    const isDirectory = exists && stats.isDirectory();
-    if (isDirectory) {
-        if (!fs.existsSync(dest)) fs.mkdirSync(dest);
-        fs.readdirSync(src).forEach((childItemName) => {
-            copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
-        });
-    } else {
-        fs.copyFileSync(src, dest);
-    }
-}
-
-if (fs.existsSync(bookDir)) {
-    if (!fs.existsSync(websiteDocsDir)) fs.mkdirSync(websiteDocsDir, { recursive: true });
-    fs.rmSync(websiteDocsDir, { recursive: true, force: true });
-    fs.mkdirSync(websiteDocsDir, { recursive: true });
-    copyRecursiveSync(bookDir, websiteDocsDir);
-    console.log('Docs synced to website successfully!');
-}

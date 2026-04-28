@@ -1,6 +1,6 @@
 # Worker Setup Notes
 
-PulsWeb2 **does not issue a token**. This documentation does not describe any token rewards, staking, or mining economics.
+PulsWeb2 **does not issue a token**. This documentation does not describe any token rewards, staking, or any issuance/incentive model.
 
 If you are setting up a worker node, focus on:
 

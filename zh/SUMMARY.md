@@ -22,7 +22,7 @@
 * [参与 DAO 治理](user/dao/overview.md)
 * [如何发起提案](user/dao/proposals.md)
 
-## ⛏️ 算力挖矿
+## 5. 算力节点
 * [支持的机密计算设备](user/miner/supported-devices.md)
 * [准备 K3s 环境](user/miner/install-k3s-cluster-on-linux.md)
 * [安装 PulsWeb2 Worker](user/miner/install-confidential-wetee-worker-operator-in-cluster.md)
@@ -30,18 +30,18 @@
 * [开启 GPU 支持（可选）](user/miner/install-nvidia-container-runtime-support-optional.md)
 * [节点运行说明（不涉及发币）](user/miner/staking-ant-mint.md)
 
-## 🛡️ 共识挖矿
+## 6. 安全共识节点
 * [运行 tee-dsecret 可信子网](user/miner/miner-types.md)
 * [部署 tee-dsecret](user/miner/deploy-tee-dsecret.md)
 
 # 💻 开发者手册
 
-## 架构解析
+## 7. 架构解析
 * [三层架构模型](dev/architecture/three-layer-model.md)
 * [DKG & 侧链技术](dev/architecture/dkg-sidechain.md)
 * [代理重加密 (PRE)](dev/architecture/pre.md)
 
-## 开发实战
+## 8. 开发实战
 * [将 Docker 镜像转换为机密镜像](dev/guides/docker-to-tee.md)
 * [使用 EGO SDK 开发](dev/golang/libos-ego-sdk.md)
 * [集成机密 DKG](dev/guides/run-tee-dkg.md)

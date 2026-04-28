@@ -1,17 +1,17 @@
-# Run TEE DKG
+# 运行 TEE DKG
 
-### Hardware and Software Requirements
+### 硬件与软件要求
 
-* [CPU List - click to see cpu list](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2\_SoftwareGuardExtensions=Yes%20with%20Intel%C2%AE%20ME)
+* [CPU 列表（点击查看）](https://ark.intel.com/content/www/us/en/ark/search/featurefilter.html?productType=873&2\_SoftwareGuardExtensions=Yes%20with%20Intel%C2%AE%20ME)
   * Intel 8th generation (Cannon Lake) Core i3, i5, i7, and i9 processors
   * Intel 9th generation (Cascade Lake) Core i3, i5, i7, and i9 processors
   * Intel 10th generation (Comet Lake) Core i3, i5, i7, and i9 processors
   * 2nd Generation Xeon Scalable processors (Cascade Lake) and later generations generally provide SGX capabilities.
-* Please utilize Ubuntu 20.04 or 22.04 as the HostOS, and avoid the use of containerized system.
+* 建议使用 Ubuntu 20.04 或 22.04 作为 HostOS，避免在容器化系统里再套一层运行。
 
-### Setup local enviroment
+### 准备本地环境
 
-#### Check Intel SGX support
+#### 检查 Intel SGX 支持
 
 ```
 The hardware must support SGX and it must be enabled in the BIOS:
@@ -24,13 +24,13 @@ $ cpuid | grep SGX
       SGX1 supported                         = true                       = true
 ```
 
-* SGX: Software Guard Extensions supported is true if the hardware supports it.
-* SGX\_LC: SGX launch config supported is true if the hardware also supports FLC. This is required for attestation.
-* SGX1 supported is true if it's enabled in the BIOS.
+* SGX: `Software Guard Extensions supported = true` 代表硬件支持 SGX。
+* SGX\_LC: `SGX launch config supported = true` 代表硬件支持 FLC（远程证明需要）。
+* SGX1 supported: 代表 BIOS 中已启用。
 
-#### Intel Sgx Setup on Ubuntu 20.04/Ubuntu 22.04 and Ego Setup
+#### Ubuntu 20.04/22.04 安装 Intel SGX 依赖与 EGO
 
-> For more information about Ego, please refer to https://docs.edgeless.systems/ego/getting-started/install
+> 更多 EGO 信息请参考 `https://docs.edgeless.systems/ego/getting-started/install`
 
 ```bash
 sudo apt install build-essential libssl-dev
@@ -51,15 +51,15 @@ sudo chmod 777 /opt/wetee-worker
 #### Set golang env
 
 ```bash
-# Install golang 1.21 ,ubuntu 22.04 default golang version is 1.13
+# 安装 Golang 1.21（Ubuntu 默认版本可能较低）
 sudo apt install golang-1.21
 
-# Set up the Golang environment, and/or consider adding it to the .bashrc or .zshrc file in the home directory.
+# 设置 Golang 环境变量（建议写入 ~/.bashrc 或 ~/.zshrc）
 export GOROOT=/usr/lib/go-1.21/
 export PATH=$PATH:$GOROOT/bin
 ```
 
-### Run DKG
+### 运行 DKG
 
 ```bash
 sh hack/node1.sh

@@ -134,7 +134,6 @@ html, body,
 .navigation-prev, .navigation-next {
     flex: 1 !important;
     position: static !important;
-    background: rgb(24, 24, 27) !important;
     border: 1px solid rgb(39, 39, 42) !important;
     border-radius: 12px !important;
     padding: 20px !important;
@@ -170,10 +169,8 @@ html, body,
 
 /* 7. Code Blocks */
 code {
-    background: rgb(39, 39, 42) !important;
     color: rgb(66, 204, 106) !important;
-    padding: 2px 6px !important;
-    border-radius: 4px !important;
+    padding: 0 !important;
     font-family: 'JetBrains Mono', monospace !important;
 }
 
@@ -181,7 +178,7 @@ pre {
     background: rgb(9, 9, 11) !important;
     border: 1px solid rgb(39, 39, 42) !important;
     border-radius: 12px !important;
-    padding: 20px !important;
+    padding: 10px !important;
 }
 
 /* 8. 语言切换按钮 (右上角浮动样式) */
