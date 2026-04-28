@@ -6,5 +6,8 @@
         "-sharing",
         "fontsettings",
         "theme-default"
-    ]
+    ],
+    "styles": {
+        "website": "styles/website.css"
+    }
 }

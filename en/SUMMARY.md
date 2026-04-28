@@ -39,5 +39,7 @@
 
 ## PROTOCOLS
 
+* [Blockchain Mint](user/mint/blockchain-mint.md)
+* [TEE Computing Mint](user/mint/tee-computing-mint.md)
 * [Staking & Rewards](user/miner/staking-ant-mint.md)
 * [Proof of Work (DCAP)](user/miner/install-intel-sgx-tdx-pccs-service-in-cluster.md)
