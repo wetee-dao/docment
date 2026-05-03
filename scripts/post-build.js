@@ -4,6 +4,76 @@ import path from 'path';
 const bookDir = path.resolve('_book');
 const faviconSrc = path.resolve('favicon.ico');
 const faviconDest = path.join(bookDir, 'favicon.ico');
+const bookJsonPath = path.resolve('book.json');
+
+function escapeHtmlAttr(value) {
+    return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+function stripTags(html) {
+    return String(html ?? '')
+        .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+        .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+        .replace(/<!--[\s\S]*?-->/g, ' ')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function truncateForSeo(text, maxLen) {
+    const s = String(text ?? '').trim();
+    if (!s) return '';
+    if (s.length <= maxLen) return s;
+    return s.slice(0, Math.max(0, maxLen - 1)).trimEnd() + '…';
+}
+
+function buildPageDescription(htmlContent, isEn, fallback) {
+    // Prefer the main content area if present (HonKit uses .page-inner).
+    const pageInnerMatch = htmlContent.match(/<div class="page-inner">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/i);
+    const scope = pageInnerMatch ? pageInnerMatch[0] : htmlContent;
+
+    // Use the first heading inside the scope (exclude search result headings).
+    const h1Match = scope.match(/<h1(?![^>]*search-results-title)[^>]*>([\s\S]*?)<\/h1>/i);
+    const h2Match = scope.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
+    const titleText = stripTags((h1Match && h1Match[1]) || (h2Match && h2Match[1]) || '');
+
+    // Prefer the first paragraph after the heading.
+    let paraText = '';
+    const headingIdx = h1Match ? h1Match.index : (h2Match ? h2Match.index : -1);
+    const afterHeading = headingIdx >= 0 ? scope.slice(headingIdx) : scope;
+    const pMatch = afterHeading.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+    paraText = stripTags((pMatch && pMatch[1]) || '');
+
+    const sep = isEn ? ' — ' : '：';
+    const composed =
+        titleText && paraText
+            ? `${titleText}${sep}${paraText}`
+            : (titleText || paraText || fallback);
+
+    // 155–160 chars is a common SEO sweet spot.
+    return truncateForSeo(composed, 160);
+}
+
+function getBookDescription() {
+    try {
+        if (fs.existsSync(bookJsonPath)) {
+            const raw = fs.readFileSync(bookJsonPath, 'utf8');
+            const json = JSON.parse(raw);
+            return json?.description || '';
+        }
+    } catch (e) {
+        // ignore
+    }
+    return '';
+}
+
+const bookDescriptionEn = getBookDescription() || 'Confidential computing platform.';
+const bookDescriptionZh =
+    'WeTEE 是无需新币的可信执行与隐私计算平台：通过 TEE 提供可验证的机密计算服务，并通过协议手续费与国库治理形成可持续的网络运行机制。';
 
 // Ensure favicon is available in generated book root
 if (fs.existsSync(bookDir) && fs.existsSync(faviconSrc)) {
@@ -49,6 +119,8 @@ function injectCustomContent(dir) {
             const isEn = fullPath.includes(path.join(bookDir, 'en'));
             const currentLang = isEn ? 'en' : 'zh';
             const targetLang = isEn ? 'zh' : 'en';
+            const defaultDesc = isEn ? bookDescriptionEn : bookDescriptionZh;
+            const metaDescription = buildPageDescription(content, isEn, defaultDesc);
             
             // --- 注入 CSS ---
             const relativeToBookRoot = path.relative(path.dirname(fullPath), bookDir).replace(/\\/g, '/');
@@ -67,6 +139,18 @@ function injectCustomContent(dir) {
             // 移除旧的 favicon (如果存在)
             content = content.replace(/<link[^>]+rel=["']icon["'][^>]*>/gi, '');
             content = content.replace(/<\/head>/i, `${faviconLink}\n</head>`);
+
+            // --- 注入 description (SEO) ---
+            const descTag = `\n    <meta name="description" content="${escapeHtmlAttr(metaDescription)}">`;
+            // 如果已存在则替换，否则注入到 </head> 前
+            if (/<meta\s+name=["']description["'][^>]*>/i.test(content)) {
+                content = content.replace(
+                    /<meta\s+name=["']description["'][^>]*>/i,
+                    `<meta name="description" content="${escapeHtmlAttr(metaDescription)}">`
+                );
+            } else {
+                content = content.replace(/<\/head>/i, `${descTag}\n</head>`);
+            }
             
             // --- 注入语言切换器 (右上角版本) ---
             const relativePathFromLangRoot = fullPath.split(path.join(bookDir, currentLang) + path.sep)[1] || 'index.html';
