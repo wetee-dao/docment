@@ -1,5 +1,7 @@
 # Three-Layer Architecture Model
 
+See also: [Terminology](terminology.md).
+
 PulsWeb2's architecture is designed for scalability, security, and decentralization. It splits the responsibilities across three distinct layers.
 
 ## Layer 1: Main Chain (Polkadot)

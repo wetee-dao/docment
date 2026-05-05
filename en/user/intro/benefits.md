@@ -1,28 +1,19 @@
 # Key Benefits: Why PulsWeb2?
 
-Why not just use a traditional cloud or a standard blockchain? PulsWeb2 bridges the gap between both, solving their respective pain points.
+PulsWeb2 targets workloads that require runtime confidentiality and verifiability. Compared with traditional clouds and general-purpose blockchains, the key differences are the confidentiality boundary, verification primitives, and delivery workflow.
 
-### 1. Absolute Privacy (Memory Encryption)
-Standard encryption only protects "data at rest" (on your hard drive). Once a program runs, data enters the memory and loses its protection.
-PulsWeb2 uses hardware encryption to ensure data is **encrypted in memory** as well.
-*   **Miner-Proof**: The person providing the server cannot peek at your data.
-*   **Hacker-Proof**: Even if a hacker gains "root" admin access to the operating system, they cannot enter the hardware "Safe Room."
+### 1. Confidentiality boundary (TEE)
+Encryption at rest and in transit does not fully address runtime exposure. PulsWeb2 uses TEE as a runtime boundary to reduce plaintext exposure for supported workloads. The effective boundary depends on hardware, firmware, and the runtime stack in use.
 
-### 2. Cheaper than Centralized Clouds
-PulsWeb2 can run as a decentralized network. Idle confidential computing power from all over the world can join (depending on the environment).
-*   **No Monopoly Pricing**: Prices are determined by market supply and demand, typically **30%-70% cheaper** than confidential instances from tech giants.
-*   **Pay-as-you-go**: Pay per second of usage. Release the task as soon as it's done to avoid wasting money.
+### 2. Cost model and supply
+PulsWeb2 can be deployed in different environments. Pricing, quotas, and billing units depend on the active product rules and the resource pool.
 
-### 3. Trustless Architecture
-You don't have to "trust" a single operator; you only need to trust **mathematics** and **silicon**.
-*   **Code is Law**: All logic is transparent and verifiable on the blockchain.
-*   **Remote Attestation**: The system automatically generates a hardware proof, proving to you that your program is indeed running inside a genuine, protected chip.
+### 3. Verifiable execution (Remote Attestation)
+Remote attestation binds environment measurements and workload identity to an evidence report. Summaries/references can be recorded in an audit layer (e.g., on-chain) for third-party verification and traceability.
 
-### 4. Seamless User Experience
-You don't need to learn how to write complex "Confidential Computing code."
-*   **One-Click Conversion**: If you have a Docker image, we can wrap it in a "Safe" and run it in just a few clicks.
-*   **Zero Migration Cost**: Supports existing development toolchains with almost no overhead for migration.
+### 4. Delivery workflow
+PulsWeb2 provides a container-oriented deployment workflow and aims to reuse common toolchains. Compatibility and required changes depend on the runtime and workload constraints.
 
 ---
 
-**Summary**: PulsWeb2 allows you to run any program you want in a completely opaque "Safe Room" with a user-friendly deployment flow.
+**Summary**: PulsWeb2 is intended for workloads that require runtime confidentiality and verifiability, with a container-oriented delivery path.

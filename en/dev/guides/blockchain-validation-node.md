@@ -60,12 +60,12 @@ Start the development chain with detailed logging:
 RUST_BACKTRACE=1 ./target/release/wetee-node -ldebug --dev
 ```
 
-> Development chain means that the state of our chain will be in a tmp folder while the nodes are running. the following accounts will be pre-funded:
+> A development chain stores state in a temporary folder while the nodes are running. The following accounts are pre-funded in this mode:
 >
 > * Alice
 > * Bob
 
-In case of being interested in maintaining the chain' state between runs a base path must be added so the db can be stored in the provided folder instead of a temporary one. We could use this folder to store different chain databases, as a different folder will be created for each chain that is ran. The following commands shows how to use a newly created folder as our db base path.
+To persist chain state between runs, provide a base path so the database is stored in a chosen directory rather than a temporary one. The following commands show how to create a folder and use it as the database base path.
 
 ```bash
 // Create a folder to use as the db base path

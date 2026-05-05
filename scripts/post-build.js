@@ -75,9 +75,29 @@ const bookDescriptionEn = getBookDescription() || 'Confidential computing platfo
 const bookDescriptionZh =
     'WeTEE 是无需新币的可信执行与隐私计算平台：通过 TEE 提供可验证的机密计算服务，并通过协议手续费与国库治理形成可持续的网络运行机制。';
 
+const mermaidAssetDirName = 'assets/mermaid';
+const mermaidJsSrcCandidates = [
+    path.resolve('node_modules/mermaid/dist/mermaid.min.js'),
+    path.resolve('node_modules/mermaid/dist/mermaid.js'),
+];
+
 // Ensure favicon is available in generated book root
 if (fs.existsSync(bookDir) && fs.existsSync(faviconSrc)) {
     fs.copyFileSync(faviconSrc, faviconDest);
+}
+
+// Ensure mermaid runtime is available (copied from node_modules -> _book/assets/mermaid/)
+if (fs.existsSync(bookDir)) {
+    const destDir = path.join(bookDir, mermaidAssetDirName);
+    try {
+        if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+        const src = mermaidJsSrcCandidates.find(p => fs.existsSync(p));
+        if (src) {
+            fs.copyFileSync(src, path.join(destDir, 'mermaid.min.js'));
+        }
+    } catch {
+        // ignore copy failures; pages will just not render mermaid
+    }
 }
 
 // 1. 创建自动跳转的 index.html
@@ -180,6 +200,39 @@ function injectCustomContent(dir) {
             } else {
                 // 如果没有 book-header，直接注入到 body 开头
                 content = content.replace(/<body[^>]*>/i, `$&${switcherHtml}`);
+            }
+
+            // --- 注入 Mermaid runtime（仅当页面包含 .mermaid 容器时） ---
+            const hasMermaid =
+                /class=["']mermaid["']/.test(content) ||
+                /<pre[^>]+class=["'][^"']*\bmermaid\b[^"']*["']/.test(content) ||
+                /<div[^>]+class=["'][^"']*\bmermaid\b[^"']*["']/.test(content);
+            if (hasMermaid) {
+                const mermaidPath =
+                    (relativeToBookRoot ? relativeToBookRoot + '/' : '') +
+                    `${mermaidAssetDirName}/mermaid.min.js`;
+
+                const mermaidSnippet = `
+<script src="${mermaidPath}?v=${version}"></script>
+<script>
+  (() => {
+    const log = (...args) => console && console.error && console.error(...args);
+    try {
+      const m = window.mermaid;
+      if (!m || !m.initialize || !m.run) return;
+      // Script is injected at the end of body; "load" may have already fired.
+      m.initialize({ startOnLoad: false, securityLevel: 'strict' });
+      Promise.resolve(m.run({ querySelector: '.mermaid' })).catch((e) => log('[mermaid] render failed', e));
+    } catch (e) {
+      log('[mermaid] bootstrap failed', e);
+    }
+  })();
+</script>
+`;
+                if (!content.includes(`${mermaidAssetDirName}/mermaid.min.js`)) {
+                    if (content.includes('</body>')) content = content.replace(/<\/body>/i, `${mermaidSnippet}</body>`);
+                    else content += mermaidSnippet;
+                }
             }
             
             fs.writeFileSync(fullPath, content);

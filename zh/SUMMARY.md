@@ -7,6 +7,7 @@
 ## 1. 认识 PulsWeb2
 * [什么是 PulsWeb2？](user/intro/what-is-wetee.md)
 * [核心优势：为什么要用？](user/intro/benefits.md)
+* [平台技术原理图](user/intro/tech-principle-diagram.md)
 
 ## 2. 准备工作
 * [设置钱包](user/intro/wallet-setup.md)
@@ -38,6 +39,7 @@
 
 ## 7. 架构解析
 * [三层架构模型](dev/architecture/three-layer-model.md)
+* [平台技术原理图](user/intro/tech-principle-diagram.md)
 * [DKG & 侧链技术](dev/architecture/dkg-sidechain.md)
 * [代理重加密 (PRE)](dev/architecture/pre.md)
 

@@ -1,21 +1,21 @@
 # Run Confidential Task (Jobs)
 
-**Confidential Task** is designed for "one-and-done" computing scenarios, such as data analysis, model training, or key generation.
+**Confidential Task** targets batch/ephemeral workloads such as data analysis, model training, or key generation.
 
 ### What is a Confidential Task?
-Unlike a Service, a Task automatically shuts down and releases resources once the computation is complete. It is the most cost-effective way to handle privacy-sensitive jobs that don't need to run 24/7.
+Unlike a Service, a Task shuts down and releases resources after completion. Cost characteristics depend on the active billing rules and resource allocation.
 
 ### Workflow
 
 1.  **Submit Task**: Go to the **"Confidential Task"** section in the console.
 2.  **Trigger Conditions**: Set whether the task runs immediately or on a specific schedule.
-3.  **Encrypted Processing**: While the task is running, all intermediate data stays within the TEE "Safe Room." After completion, you can choose to have the results encrypted and sent to your email or storage.
+3.  **Processing and result delivery**: intermediate data is processed within the TEE boundary; result encryption and delivery options depend on supported product capabilities.
 4.  **Automatic Billing**: Billing stops the exact moment the task finishes.
 
 ### Why choose Confidential Tasks?
-*   **Ultimate Privacy**: No traces are left behind. Memory data is wiped as soon as the task ends.
-*   **Lower Costs**: Only pay for the active computation time.
-*   **High Concurrency**: You can trigger thousands of tasks simultaneously across the global distributed network.
+*   **Resource release**: resources are released after completion.
+*   **Cost model**: billing is based on task execution; exact units depend on current rules.
+*   **Concurrency**: tasks can be submitted concurrently; effective limits depend on quotas, resource supply, and scheduling policy.
 
 ---
 

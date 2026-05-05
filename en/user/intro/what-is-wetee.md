@@ -1,17 +1,9 @@
 # What is PulsWeb2?
 
-If you are new to **PulsWeb2**, think of it as **"Cloud Computing with a Built-in Safe."**
-
-In traditional cloud services (like AWS or Google Cloud), while your data might be encrypted when stored on a disk, it is usually "visible" to the cloud provider's administrators when it is actually being processed in the server's memory.
-
-**PulsWeb2 changes that.**
+PulsWeb2 is a platform for confidential-computing workloads, aiming to provide runtime confidentiality and verifiability with cloud-native delivery patterns.
 
 ### The Core Definition
-PulsWeb2 is a **Confidential Computing Platform**. It combines blockchain integrations with hardware-level \"Safe Rooms\" (TEE, Trusted Execution Environments) to ensure that your code and data remain encrypted even *during* computation. Not even the node provider who owns the physical server can see what's inside.
-
-### A Simple Analogy
-*   **Traditional Cloud**: You rent an office in a building. Although the door has a lock, the building manager (Cloud Provider) has a master key and can enter at any time to read your files.
-*   **PulsWeb2**: You place a **high-tech safe** inside that office. You put your code and data into the safe, and it runs internally. Even if the building manager stands right next to it, they cannot see what's happening or open it.
+PulsWeb2 combines on-chain scheduling/auditing with TEE (Trusted Execution Environment) to run workloads within a confidentiality boundary, and uses remote attestation and audit records as verification inputs. Supported evidence types and enforcement policies depend on the current implementation.
 
 ### Who should use PulsWeb2?
 1.  **AI Developers**: Protect hard-earned AI models from being stolen or leaked.
@@ -21,4 +13,4 @@ PulsWeb2 is a **Confidential Computing Platform**. It combines blockchain integr
 
 ---
 
-With PulsWeb2, you can deploy applications as easily as on a traditional cloud, but with the highest level of privacy and security ever possible.
+In delivery and operations, PulsWeb2 aims to keep a container-oriented workflow; confidentiality and verifiability are defined by TEE boundaries and the supported attestation/audit mechanisms.

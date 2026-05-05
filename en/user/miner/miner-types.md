@@ -1,6 +1,6 @@
 # Two Node Roles: Compute vs Consensus Security
 
-In PulsWeb2, there are **two different node roles** you can run:
+In PulsWeb2, there are two node roles:
 
 ## 1) Compute Node
 
@@ -8,7 +8,7 @@ This role provides **confidential compute** and actually runs users’ Confident
 
 - **What you deploy**: `tee-worker` (Worker node)
 - **What you provide**: CPU / memory / (optional) GPU plus TEE-capable hardware environment (e.g., Intel SGX)
-- **Your responsibilities**:
+- **Responsibilities**:
   - Run confidential workloads
   - Provide verifiable attestation (hardware proof)
   - Keep the node stable and online
@@ -23,13 +23,12 @@ In the current architecture, `tee-dsecret` is a **Trusted Subnet** component:
 
 - **What you deploy**: `tee-dsecret` (Trusted Subnet node)
 - **What you provide**: reliable networking/storage and a stable validator-style runtime
-- **Your responsibilities**:
-  - Participate in subnet consensus and ensure protocol correctness
+- **Responsibilities**:
+  - Participate in subnet consensus and provide protocol-correctness guarantees per consensus rules
   - Maintain availability and safety of DKG/Epoch flows
   - Provide “trusted subnet services” for upper-layer mainnets
 
 ---
 
-If you only want to provide compute to run workloads, deploy `tee-worker`.  
-If you want to contribute to consensus security and operate the trusted subnet, deploy `tee-dsecret`.
+For compute-only participation, deploy `tee-worker`.  \n+For trusted-subnet consensus participation, deploy `tee-dsecret`.
 

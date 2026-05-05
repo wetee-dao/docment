@@ -7,6 +7,7 @@
 ## 1. Introduction
 * [What is PulsWeb2?](user/intro/what-is-wetee.md)
 * [Key Benefits: Why PulsWeb2?](user/intro/benefits.md)
+* [Technical Principles](user/intro/tech-principle-diagram.md)
 
 ## 2. Preparation
 * [Setting up your Wallet](user/intro/wallet-setup.md)
@@ -41,6 +42,7 @@
 
 ## Architecture Deep Dive
 * [Three-Layer Model](dev/architecture/three-layer-model.md)
+* [Technical Principles](user/intro/tech-principle-diagram.md)
 * [DKG & Side-chain](dev/architecture/dkg-sidechain.md)
 * [Proxy Re-Encryption (PRE)](dev/architecture/pre.md)
 
